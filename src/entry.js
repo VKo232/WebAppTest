@@ -4,6 +4,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyparser = require('body-parser');
+var path = require("path");
 
 var cors = require('cors');
 
@@ -38,7 +39,8 @@ app.use('/api', route); // will direct all server/api requests to route
 
 // GET
 app.get('/', (req,res)=>{
-	res.send("something happned");
+//	res.send("something happned");
+	res.sendFile(path.join(__dirname + '/frontend/sample.html'));
 });
 
 app.listen(PORT, ()=> {
